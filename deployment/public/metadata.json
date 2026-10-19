@@ -1,0 +1,19 @@
+{
+  "name": "42cursus",
+  "symbol": "42",
+  "description": "NFT certifying the level reached by thgaugai in the 42 cursus.",
+  "image": "https://gateway.irys.xyz/54ZpVnoNSCfQE3Luu8ghTdjYa3jZudD99GkhTHDyrewi",
+  "attributes": [
+  { "trait_type": "Artist", "value": "thgaugai" },
+  { "trait_type": "Level", "value": 11.6}
+  ],
+  "properties": {
+    "files": [
+      {
+        "uri": "https://gateway.irys.xyz/54ZpVnoNSCfQE3Luu8ghTdjYa3jZudD99GkhTHDyrewi",
+        "type": "image/png"
+      }
+    ],
+    "category": "image"
+  }
+}

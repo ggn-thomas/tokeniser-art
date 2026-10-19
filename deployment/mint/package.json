@@ -1,0 +1,17 @@
+{
+  "name": "test",
+  "type": "commonjs",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@metaplex-foundation/mpl-token-metadata": "^3.4.0",
+    "@solana/spl-token": "^0.4.14",
+    "@solana/web3.js": "^1.98.4",
+    "borsh": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.9",
+    "ts-node": "^10.9.2"
+  }
+}
