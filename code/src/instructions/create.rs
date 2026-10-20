@@ -70,7 +70,7 @@ pub fn create(
             mint_account.key,
             mint_authority.key,
             Some(mint_authority.key),
-            0, // // 0 decimals, an nft cannot be split
+            0, // 0 decimals an nft cannot be split
         )?,
         &[
             mint_account.clone(),
@@ -80,7 +80,7 @@ pub fn create(
         ]
     )?;
 
-    // create NFT metadata account
+    // create nft metadata account
     //
     msg!("Creating metadata account...");
     invoke(
