@@ -42,7 +42,7 @@ pub fn create(
     let _associated_token_program = next_account_info(accounts_iter)?;
     let _edition_account = next_account_info(accounts_iter)?;
 
-    // créer le compte pour le mint
+    // create mint account
     //
     msg!("Creating mint account...");
     invoke(
@@ -61,16 +61,16 @@ pub fn create(
         ]
     )?;
 
-    // initialiser le compte de mint
+    // initialize mint account
     //
-    msg!("Initializing mint account");
+    msg!("Initializing mint account...");
     invoke(
         &token_instruction::initialize_mint(
             token_program.key,
             mint_account.key,
             mint_authority.key,
             Some(mint_authority.key),
-            0, // for the NFT standar
+            0, // // 0 decimals, an nft cannot be split
         )?,
         &[
             mint_account.clone(),
@@ -80,9 +80,9 @@ pub fn create(
         ]
     )?;
 
-    // créer le compte pour les métadonnées du NFT
+    // create NFT metadata account
     //
-    msg!("Creating metadata account");
+    msg!("Creating metadata account...");
     invoke(
         &CreateMetadataAccountV3 {
             metadata: *metadata_account.key,

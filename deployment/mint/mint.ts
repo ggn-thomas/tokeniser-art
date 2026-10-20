@@ -13,7 +13,6 @@ import {
     TransactionInstruction,
     Transaction,
 } from "@solana/web3.js"
-import { transfer } from "@solana/spl-token";
 
 const RPC_SOLANA ='https://api.devnet.solana.com/';
 const PROGRAM_ID = new PublicKey("BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT");
@@ -43,7 +42,7 @@ async function main(){
 
     const mintKeypair = Keypair.generate();
 
-    // Program Derived Address pour stocker métadonnée du token
+    // Program Derived Address to store token metadata
     const metadataAddress = PublicKey.findProgramAddressSync(
         [
             Buffer.from("metadata"), 
@@ -59,7 +58,7 @@ async function main(){
         nft_uri: "https://gateway.irys.xyz/7EB9ihT1gNXN4HQiHtAmSxpG8rg6onsDQTxdHDzCvN8v",
     });
 
-    // Program Derived Address pour le compte Master edition
+    // Program Derived Address for master edition account
     const editionAddress = PublicKey.findProgramAddressSync(
         [
             Buffer.from("metadata"),
@@ -83,11 +82,11 @@ async function main(){
             { pubkey: metadataAddress, isSigner: false, isWritable: true }, // metadata
             { pubkey: payer.publicKey, isSigner: true, isWritable: true }, // payer
             { pubkey: SYSVAR_RENT_PUBKEY, isSigner: false, isWritable: false }, // rent
-            { pubkey: SystemProgram.programId, isSigner: false, isWritable: false }, // system
+            { pubkey: SystemProgram.programId, isSigner: false, isWritable: false }, // system program
             { pubkey: TOKEN_PROGRAM_ID, isSigner: false, isWritable: false }, // token program
             { pubkey: TOKEN_METADATA_PROGRAM_ID, isSigner: false, isWritable: false }, // metadata program
             { pubkey: ASSOCIATED_TOKEN_PROGRAM_ID, isSigner: false, isWritable: false }, // ATA program
-            { pubkey: editionAddress, isSigner: false, isWritable: true}, // Edition account
+            { pubkey: editionAddress, isSigner: false, isWritable: true}, // master edition
         ],
         programId: PROGRAM_ID,
         data: instructionData,

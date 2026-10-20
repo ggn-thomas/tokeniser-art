@@ -1,54 +1,53 @@
 # TokenizeArt
 
-Projet réalisé par **thgaugai**.
+Project by **thgaugai**.
 
-TokenizeArt crée un token non fongible (NFT) sur Solana. Le NFT certifie le niveau atteint par un élève dans le cursus 42.
+TokenizeArt creates a non-fungible token (NFT) on Solana. The NFT certifies the level a student has reached in the 42 cursus.
 
-## NFT déployé
+## Deployed NFT
 
 | | |
 |---|---|
 | Blockchain | Solana |
-| Réseau | Devnet |
+| Network | Devnet |
 | Program ID | `BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT` ([Solscan](https://solscan.io/account/BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT?cluster=devnet)) |
-| Adresse du NFT (mint) | `49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831` ([Solscan](https://solscan.io/token/49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831?cluster=devnet)) |
+| NFT address (mint) | `49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831` ([Solscan](https://solscan.io/token/49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831?cluster=devnet)) |
 
-## Choix techniques
+## Technical choices
 
-**Blockchain : Solana.** Solana est l'une des blockchains les plus rapides du marché : elle traite des milliers de transactions par seconde pour un coût infime. Elle a une grande communauté de développeurs, donc beaucoup de ressources, et une adoption institutionnelle importante : Visa l'utilise pour des paiements en stablecoins et PayPal y a déployé son jeton PYUSD.
+**Blockchain: Solana.** Solana is one of the fastest blockchains available: it processes thousands of transactions per second at a negligible cost. It has a large developer community, which means plenty of resources, and significant institutional adoption: Visa uses it for stablecoin payments and PayPal has deployed its PYUSD token on it.
 
-**Langage : Rust natif, sans framework.** Rust est le langage de référence des programmes Solana. Il est rapide et sa gestion stricte de la mémoire élimine une grande partie des failles de sécurité liées à la mémoire. Le programme n'utilise pas Anchor : chaque compte et chaque appel à un autre programme est écrit à la main, ce qui oblige à comprendre ce qui se passe réellement on-chain.
+**Language: native Rust, no framework.** Rust is the reference language for Solana programs. It is fast, and its strict memory management rules out a large class of memory-related security flaws. The program does not use Anchor: every account and every call to another program is written by hand, which requires understanding what actually happens on-chain.
 
-**Standard : Metaplex Token Metadata.** C'est le standard NFT de Solana, l'équivalent d'ERC-721 sur Ethereum. Il est reconnu par les wallets et les explorateurs.
+**Standard: Metaplex Token Metadata.** This is the NFT standard on Solana, the equivalent of ERC-721 on Ethereum. Wallets and explorers recognize it.
 
-**Stockage : Irys.** L'image et le fichier de métadonnées JSON sont stockés de façon permanente et décentralisée sur Irys. Seule l'URI du JSON est enregistrée on-chain, car l'espace on-chain est limité et payant.
+**Storage: Irys.** The image and the JSON metadata file are stored permanently and in a decentralized way on Irys. Only the URI of the JSON file is stored on-chain, because on-chain space is limited and costs rent.
 
-**NFT immuable et unique.** Les métadonnées sont créées avec `is_mutable: false`, donc personne ne peut plus les modifier. La Master Edition est créée avec `max_supply: 0` et récupère la mint authority, donc aucun autre exemplaire ne peut être émis. Le mint authority appartient à la PDA Master Edition.
+**Immutable and unique NFT.** The metadata is created with `is_mutable: false`, so no one can modify it anymore. The Master Edition is created with `max_supply: 0` and takes over the mint authority, so no other copy can ever be issued. The mint authority belongs to the Master Edition PDA.
 
-
-## Structure du dépôt
+## Repository structure
 
 ```
 README.md
-code/            programme Solana en Rust
-deployment/      déploiement du programme et mint du NFT
-documentation/   fonctionnement détaillé du NFT
+code/            Solana program in Rust
+deployment/      program deployment and NFT minting
+documentation/   detailed explanation of how the NFT works
 ```
 
-## Utilisation
+## Usage
 
-Prérequis : Rust, la [CLI Solana](https://solana.com/docs/intro/installation) configurée sur devnet avec un wallet approvisionné, et Node.js.
+Requirements: Rust, the [Solana CLI](https://solana.com/docs/intro/installation) configured for devnet with a funded wallet, and Node.js.
 
 ```bash
-# Compiler et déployer le programme
+# Build and deploy the program
 ./deployment/deploy.sh
 
-# Installer les dépendances du script de mint
+# Install the mint script dependencies
 cd deployment/mint
 npm install
 
-# Minter un NFT
+# Mint an NFT
 npx ts-node mint.ts
 ```
 
-Le détail du fonctionnement, des comptes et des privilèges se trouve dans [documentation/documentation.md](documentation/documentation.md).
+Details about how the program works, its accounts and its privileges are in [documentation/documentation.md](documentation/documentation.md).

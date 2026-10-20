@@ -28,9 +28,9 @@ pub fn initialize_mint(
     let associated_token_program = next_account_info(accounts_iter)?;
     let edition_account = next_account_info(accounts_iter)?;
 
-    // créer le compte associé
+    // create ATA
     //
-    msg!("Creating token associated account...");
+    msg!("Creating associated token account...");
     invoke(
         &associated_token_account_instruction::create_associated_token_account(
             payer.key,
@@ -48,7 +48,7 @@ pub fn initialize_mint(
         ],
     )?;
 
-    // Miné le token vers un compte associé
+    // Mint token
     //
     msg!("Minning token to associated token account...");
     invoke(
@@ -68,7 +68,7 @@ pub fn initialize_mint(
         ],
     )?;
 
-    // Créé le compte édition
+    // Create master edition account
     //
     msg!("Creating edition account...");
     invoke(
