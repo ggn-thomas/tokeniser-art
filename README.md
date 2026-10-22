@@ -1,6 +1,6 @@
-# TokenizeArt
+This project has been created as part of the 42 curriculum by thgaugai
 
-Project by **thgaugai**.
+# TokenizeArt
 
 TokenizeArt creates a non-fungible token (NFT) on Solana. The NFT certifies the level a student has reached in the 42 cursus.
 
