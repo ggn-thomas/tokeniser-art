@@ -65,18 +65,3 @@ The program exposes a single instruction. It takes `nft_title`, `nft_symbol` and
 | Update authority | the wallet that minted the NFT | none, because `is_mutable = false` |
 | Mint authority and freeze authority | the Master Edition PDA | no new token can be issued |
 
-## Checking who owns the NFT
-
-This is the equivalent of `ownerOf` in Solidity. First find the token account that holds the NFT, then the owner of that account:
-
-```bash
-# 1. Token account holding the NFT
-curl -s https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
-{"jsonrpc":"2.0","id":1,"method":"getTokenLargestAccounts","params":["49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831"]}'
-
-# 2. Owner of that account ("owner" field)
-curl -s https://api.devnet.solana.com -X POST -H "Content-Type: application/json" -d '
-{"jsonrpc":"2.0","id":1,"method":"getAccountInfo","params":["<address from step 1>",{"encoding":"jsonParsed"}]}'
-```
-
-The "Holders" tab on Solscan shows the same information.
