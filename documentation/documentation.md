@@ -12,9 +12,9 @@ When a student leaves 42, their level in the cursus is certified directly on the
 
 | | |
 |---|---|
-| Program ID | `BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT` |
-| NFT mint | `49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831` |
-| Explorer | [Solscan](https://solscan.io/token/49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831?cluster=devnet) |
+| Program ID | `HgsUr9BvczUfQBxQd9df8GFXzdctxr15SwNyWysZSfbs` |
+| NFT mint | `G5nrmND2Mhbbx15kD67GnBsD8XmhutuFwqWzUJ7tNQSs` |
+| Explorer | [Solscan](https://solscan.io/token/G5nrmND2Mhbbx15kD67GnBsD8XmhutuFwqWzUJ7tNQSs?cluster=devnet) |
 
 ## File tree
 

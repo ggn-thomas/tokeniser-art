@@ -10,8 +10,8 @@ TokenizeArt creates a non-fungible token (NFT) on Solana. The NFT certifies the 
 |---|---|
 | Blockchain | Solana |
 | Network | Devnet |
-| Program ID | `BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT` ([Solscan](https://solscan.io/account/BipcsQBkLotT7TQmcBwsE5EAgPgbAqcXBGytmQggpXBT?cluster=devnet)) |
-| NFT address (mint) | `49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831` ([Solscan](https://solscan.io/token/49vhNmLw4R67yjPvwmdQyksqQXB2vDhjxWC3Xp9cj831?cluster=devnet)) |
+| Program ID | `HgsUr9BvczUfQBxQd9df8GFXzdctxr15SwNyWysZSfbs` ([Solscan](https://solscan.io/account/HgsUr9BvczUfQBxQd9df8GFXzdctxr15SwNyWysZSfbs?cluster=devnet)) |
+| NFT address (mint) | `G5nrmND2Mhbbx15kD67GnBsD8XmhutuFwqWzUJ7tNQSs` ([Solscan](https://solscan.io/token/G5nrmND2Mhbbx15kD67GnBsD8XmhutuFwqWzUJ7tNQSs?cluster=devnet)) |
 
 ## Technical choices
 
